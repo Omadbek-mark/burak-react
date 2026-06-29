@@ -14,7 +14,6 @@ import { HelpPage } from "./screens/helpPage";
 
 function App() {
   const location = useLocation();
-  console.log("lcation:", location);
 
   return (
     <>
