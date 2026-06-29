@@ -7,7 +7,7 @@ export default function HomeNavbar() {
 
   return (
       <div className="home-navbar">
-        <Container className="navbar-container" sx={{ mt: "55px", height: "642px" }}>
+        <Container className="navbar-container">
           <Stack className="menu">
             <Box>
               <NavLink to="/">
