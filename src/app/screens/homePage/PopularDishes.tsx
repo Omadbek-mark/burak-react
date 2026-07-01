@@ -98,7 +98,7 @@ export default function PopularDishes() {
                 );
               })
             ) : (
-              <Box className="no-data">Popular products are not available yet!</Box>
+              <Box className="no-data">Popular products are not available!</Box>
             )}
           </Stack>
         </Stack>

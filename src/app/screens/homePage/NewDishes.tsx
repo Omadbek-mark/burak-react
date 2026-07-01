@@ -69,7 +69,7 @@ export default function NewDishes() {
                   );
                 })
               ) : (
-                <Box className="no-data">New products are not available yet!</Box>
+                <Box className="no-data">New products are not available!</Box>
               )}
             </CssVarsProvider>
           </Stack>
