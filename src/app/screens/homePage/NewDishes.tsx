@@ -16,7 +16,6 @@ const newDishes = [
 ];
 
 export default function NewDishes() {
-  console.log("newDishes:", newDishes);
 
   return (
     <div className={"new-products-frame"}>

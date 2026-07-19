@@ -28,6 +28,8 @@ export default function HomePage() {
   /** Bu setPopularDishes esa bizning command **/
   const { popularDishes } = useSelector(popularDishesRetriever); 
 
+  console.log(process.env.REACT_APP_API_URL)
+
   useEffect(() => {}, []);
 
   return (
