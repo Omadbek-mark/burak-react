@@ -13,7 +13,6 @@ import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrievePopularDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
-import { ProductCollection } from "../../../lib/enums/product.enum";
 import { serverApi } from "../../../lib/config";
 
 /** REDUX SLICE & SELECTOR **/
@@ -24,7 +23,6 @@ retrievePopularDishes, (popularDishes) => ({ popularDishes })
 export default function PopularDishes() {
   const { popularDishes } = useSelector(popularDishesRetriever);
 
-  console.log("popularDishes:", popularDishes);
   return (
     <div className="popular-dishes-frame">
       <Container>
