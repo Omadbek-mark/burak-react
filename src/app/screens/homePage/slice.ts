@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { HomePageState } from "../../../lib/types/screen";
-import { stat } from "fs";
-import exp from "constants";
 
 
 const initialState: HomePageState = {
