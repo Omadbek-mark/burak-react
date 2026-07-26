@@ -32,6 +32,7 @@ retrieveProducts, (products) => ({ products })
 export default function Products() {
   const { setProducts } = actionDispatch(useDispatch());
   const { products } = useSelector(productsRetriever);
+
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
     page: 1,
     limit: 8,
@@ -45,11 +46,13 @@ export default function Products() {
 
   useEffect(() => {
     const product = new ProductService();
-    product.getProducts(productSearch)
-      .then((data) => setProducts(data))
-      .catch((err) => console.log(err));
-    
-  }, [productSearch]);
+  product.getProducts(productSearch)
+    .then((data) => setProducts(data))
+    .catch((err) => {
+      console.log(err);
+      setProducts([]);
+    });
+}, [productSearch]);
 
   useEffect(() => {
     if (searchText === "") {
@@ -78,7 +81,7 @@ export default function Products() {
   };
 
   const paginationHandler = (e: ChangeEvent<any>, value: number) => {
-    setProductSearch({ ...productSearch });
+    setProductSearch({ ...productSearch, page: value });
   };
 
   const chooseDishHandler = (id: string) => {
@@ -116,7 +119,7 @@ export default function Products() {
             </Stack>
           </Stack>
 
-          <Stack className={"dishes-filter-section"}>
+          <Stack className={"dishes-filter-section"}> 
             <Stack className={"dishes-filter-box"}>
               <Button
                 variant={"contained"}

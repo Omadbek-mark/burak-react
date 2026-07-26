@@ -51,7 +51,7 @@ export default function ChosenProduct() {
     const member = new MemberService();
     member
       .getRestaurant()
-      .catch((data) => setRestaurant(data))
+      .then((data) => setRestaurant(data))
       .catch((err) => console.log(err));
   }, []);
 
