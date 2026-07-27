@@ -22,6 +22,7 @@ import ProductService from "../../services/ProductService";
 import MemberService from "../../services/MemberService";
 import { Member } from "../../../lib/types/member";
 import { serverApi } from "../../../lib/config";
+import { CartItem } from "../../../lib/types/search";
 
 /** REDUX SLICE & SELECTOR **/
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -35,8 +36,13 @@ const chosenProductRetriever = createSelector(
 retrieveChosenProduct, (chosenProduct) => ({ chosenProduct })
 );
 
+interface ChosenProductProps {
+  onAdd: (item: CartItem) => void;
+}
+
  
-export default function ChosenProduct() {
+export default function ChosenProduct(props: ChosenProductProps) {
+  const { onAdd } = props;
   const { productId } = useParams<{ productId: string }>();
   const { setRestaurant, setChosenProduct } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductRetriever);
