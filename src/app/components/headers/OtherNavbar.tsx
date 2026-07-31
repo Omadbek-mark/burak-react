@@ -90,6 +90,7 @@ export default function OtherNavbar(props: OtherNavbarProps) {
               open={Boolean(anchorEl)}
               onClose={handleCloseLogout}
               onClick={handleCloseLogout}
+              disableAutoFocusItem
               PaperProps={{
                 elevation: 0,
                 sx: {
@@ -119,12 +120,18 @@ export default function OtherNavbar(props: OtherNavbarProps) {
               transformOrigin={{ horizontal: 'right', vertical: 'top' }}
               anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-              <MenuItem onClick={handleLogoutRequest}>
+              <MenuItem
+                onClick={(e) => {
+                  (e.currentTarget as HTMLElement).blur();
+                  handleLogoutRequest();
+                }}
+              >
                 <ListItemIcon>
                   <Logout fontSize="small" style={{ color: 'blue' }} />
                 </ListItemIcon>
                 Logout
               </MenuItem>
+
             </Menu>
           </Stack>
           
